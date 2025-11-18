@@ -94,21 +94,29 @@ document.getElementById("studentSelect").addEventListener("change", (e) => {
 // 🔍 Search Donors by Blood Group
 document.getElementById("searchBtn").addEventListener("click", () => {
   const group = document.getElementById("bloodGroup").value.trim();
-  const results = document.getElementById("results");
-  results.innerHTML = "";
+  const resultsSection = document.getElementById("results");
+  const resultsContainer = resultsSection.querySelector(".container");
+  resultsContainer.innerHTML = '<h2 class="text-center text-white mb-4">Available Donors</h2>'; // Reset title
 
   if (!group) {
-    results.textContent = "Please select a blood group.";
+    const message = document.createElement("p");
+    message.textContent = "Please select a blood group.";
+    message.className = "text-center text-white";
+    resultsContainer.appendChild(message);
     return;
   }
 
   const matches = students.filter(s => s["Blood Group"] === group);
   if (matches.length === 0) {
-    results.textContent = `No donors found for ${group}.`;
+    const message = document.createElement("p");
+    message.textContent = `No donors found for ${group}.`;
+    message.className = "text-center text-white";
+    resultsContainer.appendChild(message);
     return;
   }
 
   const table = document.createElement("table");
+  table.className = "table table-hover"; 
   const headerRow = document.createElement("tr");
   ["Student Name", "Student Mobile", "Action"].forEach(h => {
     const th = document.createElement("th");
@@ -128,7 +136,7 @@ document.getElementById("searchBtn").addEventListener("click", () => {
     const actionTd = document.createElement("td");
     const btn = document.createElement("button");
     btn.textContent = "Send SMS";
-    btn.className = "sms-btn";
+    btn.className = "btn btn-success btn-sm sms-btn";
     btn.addEventListener("click", () =>
       sendSMS(s["Student Mobile"], s["Student Name"])
     );
@@ -138,5 +146,5 @@ document.getElementById("searchBtn").addEventListener("click", () => {
     table.appendChild(row);
   });
 
-  results.appendChild(table);
+  resultsContainer.appendChild(table);
 });

@@ -100,24 +100,55 @@ main {
 }
 
 /* Results section */
+#results {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
 #results table {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  margin: 0 auto;
+}
+
+#results th,
+#results td {
+  padding: 1.1rem 1.5rem;
+  text-align: left;
+  color: #fff;
 }
 
 #results th {
-  background: #3498db;
-  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+#results tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .sms-btn {
   background: #2ecc71;
   border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  color: gold !important;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .sms-btn:hover {
   background: #27ae60;
+  transform: scale(1.05);
 }
 
 /* Registration section */
