@@ -109,6 +109,7 @@ document.getElementById("searchBtn").addEventListener("click", () => {
   }
 
   const table = document.createElement("table");
+  table.className = "table table-hover table-striped"; 
   const headerRow = document.createElement("tr");
   ["Student Name", "Student Mobile", "Action"].forEach(h => {
     const th = document.createElement("th");

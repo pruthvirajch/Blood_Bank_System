@@ -100,20 +100,44 @@ main {
 }
 
 /* Results section */
+#results {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
 #results table {
+  width: 80%;
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#results th,
+#results td {
+  padding: 1rem;
+  text-align: left;
 }
 
 #results th {
   background: #3498db;
   color: #fff;
+  font-weight: 600;
+}
+
+#results tr:hover {
+  background-color: rgba(241, 241, 241, 0.95);
 }
 
 .sms-btn {
   background: #2ecc71;
   border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .sms-btn:hover {
